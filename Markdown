@@ -1,0 +1,19 @@
+# Geo-AI-Agent-Toolkit
+
+基于 MiMo 多模态大模型的无人机航测数据智能化分析工具包。旨在实现无人机影像从“原始数据”到“语义预警”的端到端自动化流程。
+
+## 核心 Pipeline
+Input(DJI Images) -> MiMo Vision Encoder -> Semantic Masking -> Spatial Analysis -> Output(GeoJSON Alert Layer)
+
+## 核心功能
+1. **Perception:** 利用 MiMo 多模态视觉能力对航测影像进行语义识别（如：滑坡、违建、植被覆盖）。
+2. **Spatial Reasoning:** 基于 OGC 标准对识别目标进行地理坐标转换，并结合空间拓扑算法计算风险权重。
+3. **Auto-Reporting:** 自动输出标准 GIS 图层 (GeoJSON)，直接接入 WebGIS 系统。
+
+## 目录结构
+- `src/perception/segmentation.py`: 语义分割推理接口。
+- `src/spatial/topology.py`: 高精度坐标系转换与风险区域计算逻辑。
+
+## 开发计划 (Roadmap)
+- [ ] 优化针对滑坡地貌的小样本微调策略。
+- [ ] 构建 MiMo 推理性能基准测试。
